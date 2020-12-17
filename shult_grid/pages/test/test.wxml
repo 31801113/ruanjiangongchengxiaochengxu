@@ -1,0 +1,20 @@
+<view class = "container">
+<view class="postion">
+  <view class="font-settings">当前是第x关</view>
+</view>
+  <image src="../pics/background.jpg" class='background' mode='widthFix'> </image>
+<view class="button">
+    <view  wx:for="{{mimeMap}}"  wx:for-item="row" wx:for-index="i" class="flex-container">
+      <button class = "btns-{{test}}" wx:for="{{row}}" wx:for-item="cell" wx:for-index="j" data-y="{{j}}" data-x="{{i}}" data-value="{{cell}}" bindtap="onclick">
+        <text>{{cell}}</text>
+      </button>
+    </view>
+</view>
+<view class="button">
+  <view class="flex-container">
+    <button class="btns-{{test}}" data-y="{{0}}" data-x="{{0}}" data-value="{{0}}" bindtap="onclick">
+    
+    </button> 
+  </view>
+</view>
+</view>

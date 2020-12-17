@@ -1,0 +1,17 @@
+<!--pages/index2/index2.wxml-->
+<view class="container">
+  <view class="postion">
+  <view class="font-settings">游戏二:数字匹配</view>
+</view>
+<view class="postion">
+  <view class="font-settings">教程演示</view>
+</view>
+  <image src="../pics/background.jpg" class='background' mode='widthFix'> </image>
+  <image src="../pics/yanshi.gif" class='gift' mode='aspectFit'> </image>
+  <view class="postion">
+    <!-- <text class="user-motto">{{motto}}</text> -->
+    <navigator url="/pages/test/test">
+      <button class="bf_input_down" formType="submit">开始测试<image src="../pics/button.png" class='button' mode='aspectFit'> </image></button>
+    </navigator>
+  </view>
+</view>

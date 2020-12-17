@@ -1,0 +1,148 @@
+/* pages/grid/grid.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  padding-top: 50px;
+  padding: 0rpx;
+}
+
+.wrapper {
+  padding: 8px;
+}
+
+.flex-container {
+  /* padding: 0; */
+  align-items: center;
+  justify-content: center;
+  padding-top: 11rpx;
+  margin: auto;
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  /* justify-content: space-around; */
+  line-height: 1em;
+  width: 99%;
+  border-radius: 40rpx;
+}
+
+.flex-item {
+  background: gray;
+  margin: 1px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  flex: 1 0 auto;
+  height: 60px;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.open2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120rpx;
+  width: 140rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 5px 0 #d87fde;
+  color: #0f4b6d !important;
+  text-align: center;
+  font-size: 65rpx;
+  font-weight: bolder;
+  font: 65rpx Calibri, Arial, sans-serif;
+  /* A semi-transparent text shadow */
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+  /* Overriding the default underline styling of the links */
+  text-decoration: none !important;
+  background-color: #d5dbe0;
+  background-image: -moz-radial-gradient(center bottom, circle, rgba(197, 199, 202, 1) 0, rgba(197, 199, 202, 0) 100px),
+                      -moz-linear-gradient(#c5c7ca, #92989c);
+  background-image: -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgba(197, 199, 202, 1)), to(rgba(197, 199, 202, 0))),
+                      -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c5c7ca), to(#92989c));
+}
+
+.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120rpx;
+  width: 140rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 5px 0 #d87fde;
+  color: #0f4b6d !important;
+  text-align: center;
+  font-size: 65rpx;
+  font-weight: bolder;
+  font: 65rpx Calibri, Arial, sans-serif;
+  /* A semi-transparent text shadow */
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+  /* Overriding the default underline styling of the links */
+  text-decoration: none !important;
+  background-color: #d5dbe0;
+  background-image: -moz-radial-gradient(center bottom, circle, rgba(197, 199, 202, 1) 0, rgba(197, 199, 202, 0) 100px),
+                      -moz-linear-gradient(#c5c7ca, #92989c);
+  background-image: -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgba(197, 199, 202, 1)), to(rgba(197, 199, 202, 0))),
+                      -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c5c7ca), to(#92989c));
+}
+
+.open:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120rpx;
+  width: 140rpx;
+  /* background-color: #f5f0fc; */
+  border-radius: 15rpx;
+  box-shadow: 0 5px 0 #d87fde;
+  /* color: #000000; */
+  color: #0f4b6d !important;
+  text-align: center;
+  font-size: 65rpx;
+  font-weight: bolder;
+  /* font-size: 30px; */
+  font: 65rpx Calibri, Arial, sans-serif;
+  /* A semi-transparent text shadow */
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+  /* Overriding the default underline styling of the links */
+  text-decoration: none !important;
+  background-color: #63c7fe;
+  background-image: -moz-radial-gradient(center bottom, circle, rgba(109, 217, 250, 1) 0, rgba(109, 217, 250, 0) 100px),
+                      -moz-linear-gradient(#63c7fe, #58bef7);
+  background-image: -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgba(109, 217, 250, 1)), to(rgba(109, 217, 250, 0))),
+                      -webkit-gradient(linear, 0% 0%, 0% 100%, from(#63c7fe), to(#58bef7));
+}
+
+.open:active {
+  /* Moving the button 1px to the bottom when clicked */
+  bottom: -3px;
+  background-position: top left;
+  background-position: top left, bottom right, 0 0, 0 0;
+}
+
+.gold {
+  background: #fdff37;
+  color: #333;
+}
+
+.flex-item:before {
+  content: '';
+  display: block;
+  float: left;
+  padding-top: 100%;
+}
+
+.top {
+  display: flex;
+  font-size: 20px;
+  line-height: 2.5em;
+  text-align: center;
+}
+
+.top .label {
+  flex: 1;
+}

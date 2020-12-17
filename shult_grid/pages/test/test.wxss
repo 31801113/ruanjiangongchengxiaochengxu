@@ -1,0 +1,91 @@
+/* pages/test/test.wxss */
+.button{
+  margin-top: 50rpx;
+  margin-right: 0rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+.btns-0 {
+  height: 30px;
+  width: 64px;
+  border-radius: 0;
+  font-size:13px;
+  background-color: white;
+  flex-flow: row;
+  flex-direction: row;
+}
+
+.btns-1 {
+  height: 30px;
+  width: 64px;
+  border-radius: 0;
+  font-size:13px;
+  background-color: red;
+  flex-flow: row;
+  flex-direction: row;
+}
+
+.btns-0::after {
+  border-radius: 0;
+}
+.btns-0:active{
+  /* Moving the button 1px to the bottom when clicked */
+  bottom: -3px;
+  background-position: top left;
+  background-position: top left, bottom right, 0 0, 0 0;
+  background-color: yellow;
+}
+
+.btns-1::after {
+  border-radius: 0;
+}
+
+.btns-1:active{
+  /* Moving the button 1px to the bottom when clicked */
+  bottom: -3px;
+  background-position: top left;
+  background-position: top left, bottom right, 0 0, 0 0;
+  background-color: yellow;
+}
+
+.text{
+  font-size:10px;
+  }
+
+.containers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px;
+  } 
+
+  .postion{
+    display: flex; 
+    justify-content: flex;
+  }
+  
+  .font-settings {
+    /*字体设置*/
+    font-family: sans-serif;/*方正舒体*/
+    font-weight: bold;
+    font-size: 25px;
+    text-align: flex;/*字体位置*/
+    color: black;
+  }
+
+  .flex-container {
+    /* padding: 0; */
+    align-items: center;
+    justify-content: center;
+    padding-top: 0rpx;
+    margin: auto;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    /* justify-content: space-around; */
+    line-height: 1em;
+    width: 100%;
+    border-radius: 40rpx;
+  }
