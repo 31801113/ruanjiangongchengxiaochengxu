@@ -17,6 +17,7 @@ Page({
            [0,0,0,0,0],
            [0,0,0,0,0],
            [0,0,0,0,0],
+           [0,0,0,0,0],
            [0,0,0,0,0]],
     value:[[19,23,26,18,23],
            [34,51,17,34,37],
@@ -35,7 +36,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    for (var i = 0;i <= 0;i++)
+    var asd = [[0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]];
+    for (var j = 0;j <= 5;j++)
   {
     var random1 = Math.floor(Math.random()*6)
     var random2 = Math.floor(Math.random()*6)
@@ -43,11 +50,11 @@ Page({
     {
       random2 = Math.floor(Math.random()*6)
     }
-    this.data.flag.splice(i * 5 + random1 + 1,1,1)
-    this.data.flag.splice(i * 5 + random2 + 1,1,1)
+    asd[j][random1]=1
+    asd[j][random2]=1
   }
   this.setData({
-    flag:this.data.flag
+    flag:asd
   })
   console.log(this.data.flag)
     var arr = [[0,0,0,0,0],
