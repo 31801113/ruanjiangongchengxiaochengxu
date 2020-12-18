@@ -7,28 +7,58 @@ Page({
   data: {
     second: 0,
     time: '00:00:00',
-    mimeMap: [
-      [1, 2, 3, 4, 5],
-      [6, 7, 8, 9, 10],
-      [11, 12, 13, 14, 15],
-      [16, 17, 18, 19, 20],
-      [21, 22, 23, 24, 25],
-      [26, 27, 28, 29, 30],
-    ],
+    arr:[[0,0,0,0,0],
+         [0,0,0,0,0],
+         [0,0,0,0,0],
+         [0,0,0,0,0],
+         [0,0,0,0,0],
+         [0,0,0,0,0]],
+    flag:[[0,0,0,0,0],
+           [0,0,0,0,0],
+           [0,0,0,0,0],
+           [0,0,0,0,0],
+           [0,0,0,0,0]],
+    value:[[19,23,26,18,23],
+           [34,51,17,34,37],
+           [365,356,366,635,365],
+           [549,459,495,459,594],
+           [1793,7193,7139,7193,1739],
+           [8247,8724,8427,8274,8427]],
+    //value:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
     status: 0, //0 游戏未开始或已经结束； 1 游戏运行中；2 游戏暂停
     score: 0, // 我的得分
     timebegin: 0, //开始时间
-    cells:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,26,27,28,29,30],
-    test:0,
   },
   x: 0, // 用户点中的列
   y: 0, // 用户点中的行
-  value:0,
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    //setmap(this);
+  onLoad: function () {
+    for (var i = 0;i <= 0;i++)
+  {
+    var random1 = Math.floor(Math.random()*6)
+    var random2 = Math.floor(Math.random()*6)
+    while (random1 == random2)
+    {
+      random2 = Math.floor(Math.random()*6)
+    }
+    this.data.flag.splice(i * 5 + random1 + 1,1,1)
+    this.data.flag.splice(i * 5 + random2 + 1,1,1)
+  }
+  this.setData({
+    flag:this.data.flag
+  })
+  console.log(this.data.flag)
+    var arr = [[0,0,0,0,0],
+               [0,0,0,0,0],
+               [0,0,0,0,0],
+               [0,0,0,0,0],
+               [0,0,0,0,0],
+               [0,0,0,0,0],];
+    this.setData({
+      numbers: arr
+    })
   },
 
   /**
@@ -79,16 +109,17 @@ Page({
   onShareAppMessage: function () {
 
   },
-  onclick: function(e){
-    this.x = parseInt(e.target.dataset.x);
-    this.y = parseInt(e.target.dataset.y);
-    this.value = parseInt(e.target.dataset.value);
-    console.log(this.x,this.y,this.value);
-    if (this.x * 5 + this. y + 1 == this.value)
-    {
+  setcolor: function(e){
+    console.log(e.target.id)
+    var x = ((e.target.id).split(" "))[0]
+    var y = ((e.target.id).split(" "))[1]
+    var arr = this.data.numbers
+    if(arr[x][y] == 0)
+      arr[x][y] = 1
+    else if(arr[x][y] == 1)
+      arr[x][y] = 0
     this.setData({
-      test:1
+      numbers: arr
     })
-  }
   }
 })
