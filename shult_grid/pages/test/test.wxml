@@ -1,6 +1,9 @@
 <view class = "container">
 <view class="postion">
-  <view class="font-settings">当前是第x关</view>
+  <view class="font-settings">当前是第{{guanshu}}关</view>
+</view>
+<view class="postion">
+  <view class="font-settings">共3关，加油哦</view>
 </view>
   <image src="../pics/background.jpg" class='background' mode='widthFix'> </image>
 <view class="button">

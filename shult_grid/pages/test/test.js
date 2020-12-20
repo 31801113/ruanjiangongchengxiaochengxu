@@ -7,28 +7,11 @@ Page({
   data: {
     second: 0,
     time: '00:00:00',
-    arr:[[0,0,0,0,0],
-         [0,0,0,0,0],
-         [0,0,0,0,0],
-         [0,0,0,0,0],
-         [0,0,0,0,0],
-         [0,0,0,0,0]],
-    flag:[[0,0,0,0,0],
-           [0,0,0,0,0],
-           [0,0,0,0,0],
-           [0,0,0,0,0],
-           [0,0,0,0,0],
-           [0,0,0,0,0]],
-    value:[[19,23,26,18,23],
-           [34,51,17,34,37],
-           [365,356,366,635,365],
-           [549,459,495,459,594],
-           [1793,7193,7139,7193,1739],
-           [8247,8724,8427,8274,8427]],
-    //value:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
     status: 0, //0 游戏未开始或已经结束； 1 游戏运行中；2 游戏暂停
     score: 0, // 我的得分
     timebegin: 0, //开始时间
+    guanshu:1,
+    successflag:[0,0,0,0,0,0]
   },
   x: 0, // 用户点中的列
   y: 0, // 用户点中的行
@@ -65,30 +48,173 @@ Page({
   [0,0,0,0,0],
   [0,0,0,0,0],
   [0,0,0,0,0]];
-  for (var i = 0;i <= 5;i++)
+  for (var i = 0;i <= 1;i++)
   {
     var samenumber = Math.floor(10 + Math.random() * 90)
     var numbers = [0,0,0]
+    var a = Math.floor(samenumber % 10)
+    var b = Math.floor((samenumber / 10) % 10)
+    while (a == b)
+    {
+      samenumber = Math.floor(10 + Math.random() * 90)
+      a = Math.floor(samenumber % 10)
+      b = Math.floor((samenumber / 10) % 10)
+    }
     var number = Math.floor(10 + Math.random() * 90)
-    while (number == samenumber)
+    var a = Math.floor(number % 10)
+    var b = Math.floor((number / 10) % 10)
+    while (number == samenumber || a == b)
     {
         number = Math.floor(10 + Math.random() * 90)
+        a = Math.floor(number % 10)
+        b = Math.floor((number / 10) % 10)
     }
     numbers[0] = number
     var number = Math.floor(10 + Math.random() * 90)
-    while (number == samenumber || number == numbers[1])
+    var a = Math.floor(number % 10)
+    var b = Math.floor((number / 10) % 10)
+    while (number == samenumber || number == numbers[0] || a == b)
     {
         number = Math.floor(10 + Math.random() * 90)
+        a = Math.floor(number % 10)
+        b = Math.floor((number / 10) % 10)
     }
     numbers[1] = number
     var number = Math.floor(10 + Math.random() * 90)
-    while (number == samenumber || number == numbers[1] || number == numbers[2])
+    var a = Math.floor(number % 10)
+    var b = Math.floor((number / 10) % 10)
+    while (number == samenumber || number == numbers[0] || number == numbers[1] || a == b)
     {
         number = Math.floor(10 + Math.random() * 90)
+        a = Math.floor(number % 10)
+        b = Math.floor((number / 10) % 10)
     }
     numbers[2] = number
+    var count = 0
+    for (var j = 0;j <= 4;j++)
+    {
+      if (this.data.flag[i][j] == 1)
+      {
+        temp1[i][j] = samenumber
+      }
+      else
+      {
+        temp1[i][j] = numbers[count]
+        count++
+      }
+    }
+  }
 
 
+
+
+
+  for (var i = 2;i <= 3;i++)
+  {
+    var samenumber = Math.floor(100 + Math.random() * 900)
+    var numbers = [0,0,0]
+    var temps = [0,0,0]
+    var a = Math.floor(samenumber % 10)
+    var b = Math.floor((samenumber / 10) % 10)
+    var c = Math.floor((samenumber / 100) % 10)
+    while (a == b || a == c || b == c || a == 0 || b == 0 || c == 0)
+    {
+      samenumber = Math.floor(100 + Math.random() * 900)
+      a = Math.floor(samenumber % 10)
+      b = Math.floor((samenumber / 10) % 10)
+      c = Math.floor((samenumber / 100) % 10)
+    }
+    temps[0] = a
+    temps[1] = b
+    temps[2] = c
+    temps = randoms(temps)
+    var number = temps[0] * 100 + temps[1] * 10 + temps[2]
+    while (number == samenumber)
+    {
+        temps = randoms(temps)
+        number = temps[0] * 100 + temps[1] * 10 + temps[2]
+    }
+    numbers[0] = number
+    temps = randoms(temps)
+    var number = temps[0] * 100 + temps[1] * 10 + temps[2]
+    while (number == samenumber || number == numbers[0])
+    {
+      temps = randoms(temps)
+      number = temps[0] * 100 + temps[1] * 10 + temps[2]
+    }
+    numbers[1] = number
+    temps = randoms(temps)
+    var number = temps[0] * 100 + temps[1] * 10 + temps[2]
+    while (number == samenumber || number == numbers[0] || number == numbers[1])
+    {
+        temps = randoms(temps)
+        number = temps[0] * 100 + temps[1] * 10 + temps[2]
+    }
+    numbers[2] = number
+    var count = 0
+    for (var j = 0;j <= 4;j++)
+    {
+      if (this.data.flag[i][j] == 1)
+      {
+        temp1[i][j] = samenumber
+      }
+      else
+      {
+        temp1[i][j] = numbers[count]
+        count++
+      }
+    }
+  }
+
+
+
+
+
+  for (var i = 4;i <= 5;i++)
+  {
+    var samenumber = Math.floor(1000 + Math.random() * 9000)
+    var numbers = [0,0,0]
+    var temps = [0,0,0,0]
+    var a = Math.floor(samenumber % 10)
+    var b = Math.floor((samenumber / 10) % 10)
+    var c = Math.floor((samenumber / 100) % 10)
+    var d = Math.floor((samenumber / 1000) % 10)
+    while (a == b || a == c || b == c || a == 0 || b == 0 || c == 0 || d == 0)
+    {
+      samenumber = Math.floor(1000 + Math.random() * 9000)
+      a = Math.floor(samenumber % 10)
+      b = Math.floor((samenumber / 10) % 10)
+      c = Math.floor((samenumber / 100) % 10)
+      d = Math.floor((samenumber / 1000) % 10)
+    }
+    temps[0] = a
+    temps[1] = b
+    temps[2] = c
+    temps[3] = d
+    temps = randoms(temps)
+    var number = temps[0] * 1000 + temps[1] * 100 + temps[2] * 10 + temps[3]
+    while (number == samenumber)
+    {
+        temps = randoms(temps)
+        number = temps[0] * 1000 + temps[1] * 100 + temps[2] * 10 + temps[3]
+    }
+    numbers[0] = number
+    temps = randoms(temps)
+    var number = temps[0] * 1000 + temps[1] * 100 + temps[2] * 10 + temps[3]
+    while (number == samenumber || number == numbers[0])
+    {
+      temps = randoms(temps)
+      number = temps[0] * 1000 + temps[1] * 100 + temps[2] * 10 + temps[3]
+    }
+    numbers[1] = number
+    temps = randoms(temps)
+    var number = temps[0] * 1000 + temps[1] * 100 + temps[2] * 10 + temps[3]
+    while (number == samenumber || number == numbers[0] || number == numbers[1])
+    {
+        temps = randoms(temps)
+        number = temps[0] * 1000 + temps[1] * 100 + temps[2] * 10 + temps[3]
+    }
+    numbers[2] = number
     var count = 0
     for (var j = 0;j <= 4;j++)
     {
@@ -114,9 +240,13 @@ Page({
                [0,0,0,0,0],
                [0,0,0,0,0],
                [0,0,0,0,0],
-               [0,0,0,0,0],];
+               [0,0,0,0,0]];
     this.setData({
       numbers: arr
+    })
+    var time = new Date();
+    this.setData({
+      timebegin: time
     })
   },
 
@@ -131,7 +261,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -174,6 +304,7 @@ Page({
     var y = ((e.target.id).split(" "))[1]
     var arr = this.data.numbers
     var charge = this.data.flag
+    var flag = this.data.successflag
     var sum = 0;
     var count = 0;
     if(arr[x][y] > 0)
@@ -203,11 +334,91 @@ Page({
           arr[x][i] = 0
         }
       }
+      else if (count == 2 && sum == 4)
+      {
+        flag[x] = 1
+      }
       //console.log(sum)
       //console.log(count)
       //console.log(arr)
     this.setData({
-      numbers: arr
+      numbers: arr,
+      successflag:flag
+    })
+    var count = this.data.guanshu
+    var i;
+    for (i = 0;i <= 5;i++)
+    {
+      if (this.data.successflag[i] == 0)
+      {
+          break;
+      }
+    }
+    if (i == 6)
+    {
+      count++
+      if (count == 4)
+      {
+        var now = new Date();
+        var leave = (now.getTime() - this.data.timebegin.getTime()) / 1000;
+        this.modalcnt(leave, this);
+      }
+      else
+      {
+      this.setData({
+        guanshu:count,
+        successflag:[0,0,0,0,0,0]
+      })
+      this.onLoad()
+      }
+    }
+  },
+
+  modalcnt: function (s, that) {
+    wx.showModal({
+      title: '恭喜你成功完成！',
+      content: '你用了' + s + ' 秒就完成了测试，太厉害了！',
+      cancelText: '再来一次',
+      confirmText: '下个测试',
+      success: function (res) {
+        if (res.confirm) {
+          //console.log('用户点击确定');
+          that.goforward();
+        } else if (res.cancel) {
+          //console.log('用户点击取消');
+          that.goBack();
+        }
+      }
+    })
+  },
+  goBack: function () {
+    // 切换页面
+    wx.navigateTo({
+      url: '../index2/index2'
+    });
+  },
+
+  goforward: function() {
+    wx.navigateTo({
+      url: '../numbermatch/numbermatch',
     })
   }
-})
+});
+
+// 数组，洗牌算法
+function randoms(send) {
+  //var r = new Random();
+  var temp1, temp2;
+  var len = send.length;
+  var n = len;
+  var returnValue = new Array();
+  for (var i = 0; i < n; i++) {
+    temp1 = Math.random() * len | 0;
+    returnValue[i] = send[temp1];
+    temp2 = send[temp1];
+    send[temp1] = send[len - 1];
+    send[len - 1] = temp2;
+    len--;
+  }
+  return returnValue;
+}
