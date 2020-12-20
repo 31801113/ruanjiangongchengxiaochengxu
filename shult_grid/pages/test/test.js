@@ -36,7 +36,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var asd = [[0,0,0,0,0],
+    var temp = [[0,0,0,0,0],
     [0,0,0,0,0],
     [0,0,0,0,0],
     [0,0,0,0,0],
@@ -44,19 +44,71 @@ Page({
     [0,0,0,0,0]];
     for (var j = 0;j <= 5;j++)
   {
-    var random1 = Math.floor(Math.random()*6)
-    var random2 = Math.floor(Math.random()*6)
+    var random1 = Math.floor(Math.random()*5)
+    var random2 = Math.floor(Math.random()*5)
     while (random1 == random2)
     {
-      random2 = Math.floor(Math.random()*6)
+      random2 = Math.floor(Math.random()*5)
     }
-    asd[j][random1]=1
-    asd[j][random2]=1
+    temp[j][random1]=1
+    temp[j][random2]=1
   }
   this.setData({
-    flag:asd
+    flag:temp
   })
-  console.log(this.data.flag)
+
+
+
+  var temp1 = [[0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0]];
+  for (var i = 0;i <= 5;i++)
+  {
+    var samenumber = Math.floor(10 + Math.random() * 90)
+    var numbers = [0,0,0]
+    var number = Math.floor(10 + Math.random() * 90)
+    while (number == samenumber)
+    {
+        number = Math.floor(10 + Math.random() * 90)
+    }
+    numbers[0] = number
+    var number = Math.floor(10 + Math.random() * 90)
+    while (number == samenumber || number == numbers[1])
+    {
+        number = Math.floor(10 + Math.random() * 90)
+    }
+    numbers[1] = number
+    var number = Math.floor(10 + Math.random() * 90)
+    while (number == samenumber || number == numbers[1] || number == numbers[2])
+    {
+        number = Math.floor(10 + Math.random() * 90)
+    }
+    numbers[2] = number
+
+
+    var count = 0
+    for (var j = 0;j <= 4;j++)
+    {
+      if (this.data.flag[i][j] == 1)
+      {
+        temp1[i][j] = samenumber
+      }
+      else
+      {
+        temp1[i][j] = numbers[count]
+        count++
+      }
+    }
+  }
+  this.setData({
+    value:temp1
+  })
+
+
+
     var arr = [[0,0,0,0,0],
                [0,0,0,0,0],
                [0,0,0,0,0],
@@ -117,14 +169,43 @@ Page({
 
   },
   setcolor: function(e){
-    console.log(e.target.id)
+    //console.log(e.target.id)
     var x = ((e.target.id).split(" "))[0]
     var y = ((e.target.id).split(" "))[1]
     var arr = this.data.numbers
-    if(arr[x][y] == 0)
-      arr[x][y] = 1
-    else if(arr[x][y] == 1)
+    var charge = this.data.flag
+    var sum = 0;
+    var count = 0;
+    if(arr[x][y] > 0)
+    {
       arr[x][y] = 0
+    }
+    else if(arr[x][y] == 0 && charge[x][y] == 1)
+    {
+      arr[x][y] = 2
+    }
+    else if (arr[x][y] == 0 && charge[x][y] == 0)
+    {
+      arr[x][y] = 1
+    }
+    for (var i = 0;i <= 4;i++)
+      {
+        if (arr[x][i] != 0)
+        {
+          count++
+        }
+        sum = sum + arr[x][i]
+      }
+      if (count == 2 && sum != 4 || count > 2)
+      {
+        for (var i = 0;i <= 4;i++)
+        {
+          arr[x][i] = 0
+        }
+      }
+      //console.log(sum)
+      //console.log(count)
+      //console.log(arr)
     this.setData({
       numbers: arr
     })
