@@ -5,6 +5,9 @@
 <view class="postion">
   <view class="font-settings">共3关，加油哦</view>
 </view>
+<view class="postion">
+  <view class="font-settings">当前用时：{{time}}</view>
+</view>
   <image src="../pics/background.jpg" class='background' mode='widthFix'> </image>
 <view class="button">
     <view class="flex-container"  wx:for="{{numbers}}"  wx:for-item="row" wx:for-index="index1">

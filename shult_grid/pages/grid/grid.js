@@ -1,4 +1,5 @@
 // pages/grid/grid.js
+var app = getApp()
 Page({
 
   data: {
@@ -83,10 +84,10 @@ digGold: function (event) { // 不直接判断，而把坐标传给后台判断
     this.x = parseInt(event.target.dataset.x);
     this.y = parseInt(event.target.dataset.y);
     this.value = parseInt(event.target.dataset.value);
-    console.log(this.x, this.y, this.value, this.data.score);
+    //console.log(this.x, this.y, this.value, this.data.score);
     // 上报坐标
     if (this.value - this.data.score == 1) {
-      console.log(this.data.score);
+      //console.log(this.data.score);
       this.reportMyChoice(this.value);
       // 游戏结束
       if (this.value == 25) {
@@ -95,13 +96,13 @@ digGold: function (event) { // 不直接判断，而把坐标传给后台判断
         });
         var now = new Date();
         var leave = (now.getTime() - this.data.timebegin.getTime()) / 1000;
-        console.log(leave);
+        //console.log(leave);
         this.modalcnt(leave, this);
 
         let newMaxScore = Math.min(leave, this.data.maxScore);
         wx.setStorageSync('maxScore', newMaxScore);
         this.data.maxScore = newMaxScore;
-        console.log(newMaxScore);
+        //console.log(newMaxScore);
       }
     }
   },
@@ -110,10 +111,12 @@ digGold: function (event) { // 不直接判断，而把坐标传给后台判断
     this.setData({
       score: this.value
     });
-    console.log(this.value);
+    //console.log(this.value);
   },
 
   modalcnt: function (s, that) {
+    app.globalData.finalscore[0] = s
+    console.log(app.globalData.finalscore[0])
     wx.showModal({
       title: '恭喜你成功完成！',
       content: '你用了' + s + ' 秒就完成了测试，太厉害了！',
@@ -166,6 +169,7 @@ function randoms(send) {
 
 
 function formatSeconds(that) {
+  console.log()
   var mins = 0,
     hours = 0,
     seconds = that.data.seconds,

@@ -1,17 +1,19 @@
 // pages/test/test.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    second: 0,
+    seconds: 0,
     time: '00:00:00',
-    status: 0, //0 游戏未开始或已经结束； 1 游戏运行中；2 游戏暂停
+    status: 1, //0 游戏未开始或已经结束； 1 游戏运行中；2 游戏暂停
     score: 0, // 我的得分
     timebegin: 0, //开始时间
     guanshu:1,
-    successflag:[0,0,0,0,0,0]
+    successflag:[0,0,0,0,0,0],
+    cost:0,
   },
   x: 0, // 用户点中的列
   y: 0, // 用户点中的行
@@ -244,10 +246,8 @@ Page({
     this.setData({
       numbers: arr
     })
-    var time = new Date();
-    this.setData({
-      timebegin: time
-    })
+    timing(this);
+    charging(this);
   },
 
   /**
@@ -357,11 +357,16 @@ Page({
     if (i == 6)
     {
       count++
+      var now = new Date();
+      var leave = (now.getTime() - this.data.timebegin.getTime()) / 1000;
+      app.globalData.temptime = app.globalData.temptime + leave
       if (count == 4)
       {
-        var now = new Date();
-        var leave = (now.getTime() - this.data.timebegin.getTime()) / 1000;
-        this.modalcnt(leave, this);
+        app.globalData.finalscore[1] = Math.floor(app.globalData.temptime)
+        this.modalcnt(Math.floor(app.globalData.temptime), this);
+        this.setData({
+          status:2
+        })
       }
       else
       {
@@ -421,4 +426,59 @@ function randoms(send) {
     len--;
   }
   return returnValue;
+}
+
+function timing(that) {
+  var seconds = that.data.seconds
+  if (seconds > 21599) {
+    that.setData({
+      time: '时间到，游戏已停止'
+    });
+    return;
+  }
+  if (that.data.status == 1) {
+    setTimeout(function () {
+      that.setData({
+        seconds: seconds + 1
+      });
+      timing(that);
+    }, 1000)
+    formatSeconds(that)
+  }
+}
+
+function formatSeconds(that) {
+  var mins = 0,
+    hours = 0,
+    seconds = that.data.seconds,
+    time = ''
+  if (seconds < 60) {
+
+  } else if (seconds < 3600) {
+    mins = parseInt(seconds / 60)
+    seconds = seconds % 60
+  } else {
+    mins = parseInt(seconds / 60)
+    seconds = seconds % 60
+    hours = parseInt(mins / 60)
+    mins = mins % 60
+  }
+  that.setData({
+    time: formatTime(hours) + ':' + formatTime(mins) + ':' + formatTime(seconds)
+  });
+}
+
+function formatTime(num) {
+  if (num < 10)
+    return '0' + num
+  else
+    return num + ''
+}
+
+function charging(that) {
+  that.data.timebegin = new Date();
+  that.data.status = 1;
+  if (that.data.seconds < 600) {
+    that.data.cost = 1
+  }
 }

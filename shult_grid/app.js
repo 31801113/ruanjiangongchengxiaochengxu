@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    finalscore:[0,0],
+    temptime:0
   }
 })
