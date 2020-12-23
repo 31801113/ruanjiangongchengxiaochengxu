@@ -1,0 +1,25 @@
+<!--pages/result/result.wxml-->
+<view class = "container">
+  <image src="../pics/background2.jpg" class='background' mode='scaleToFill'> </image>
+<view class="postion">
+  <view class="font-settings">测试结果：</view>
+</view>
+<view class="postion">
+  <view class="font-settings">你的计划能力等级是：</view>
+</view>
+<view class="postion">
+  <view class="font-settings1">A</view>
+</view>
+<view class="postion">
+    <!-- <text class="user-motto">{{motto}}</text> -->
+    <navigator url="/pages/grid/grid">
+      <button class="bf_input_down" formType="submit">返回首页<image src="../pics/button.png" class='button' mode='aspectFit'> </image></button>
+    </navigator>
+  </view>
+  <view class="postion">
+    <!-- <text class="user-motto">{{motto}}</text> -->
+    <navigator url="/pages/grid/grid">
+      <button class="bf_input_down" formType="submit">返回首页<image src="../pics/button.png" class='button' mode='aspectFit'> </image></button>
+    </navigator>
+  </view>
+</view>

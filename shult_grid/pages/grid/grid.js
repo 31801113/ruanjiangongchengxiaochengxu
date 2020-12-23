@@ -115,8 +115,28 @@ digGold: function (event) { // 不直接判断，而把坐标传给后台判断
   },
 
   modalcnt: function (s, that) {
+    s = Math.floor(s)
+    var temp = 0
     app.globalData.finalscore[0] = s
-    console.log(app.globalData.finalscore[0])
+    //console.log(app.globalData.finalscore[0])
+    if (s < 45)
+    {
+      temp = 10
+    }
+    else if (s >= 45 && s < 60)
+    {
+      temp = 8
+    }
+    else if (s >= 60 && s < 80)
+    {
+      temp = 6
+    }
+    else
+    {
+      temp = 4
+    }
+    app.globalData.Presult[0] = temp
+    //console.log(app.globalData.Presult[0])
     wx.showModal({
       title: '恭喜你成功完成！',
       content: '你用了' + s + ' 秒就完成了测试，太厉害了！',
@@ -136,13 +156,13 @@ digGold: function (event) { // 不直接判断，而把坐标传给后台判断
 
   goBack: function () {
     // 切换页面
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../index/index'
     });
   },
 
   goforward: function() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../index2/index2',
     })
   }
@@ -227,7 +247,7 @@ function charging(that) {
 function setmap(that) {
   let baseArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
   baseArray = randoms(baseArray);
-  console.log(baseArray);
+  //console.log(baseArray);
   let len = baseArray.length;
   let n = 5; //假设每行显示5个
   let lineNum = len % n === 0 ? len / n : Math.floor((len / n) + 1);
@@ -237,7 +257,7 @@ function setmap(that) {
     let temp = baseArray.slice(i * n, i * n + n);
     res.push(temp);
   }
-  console.log(res);
+  //console.log(res);
   that.setData({
     mimeMap: res,
     score: 0,

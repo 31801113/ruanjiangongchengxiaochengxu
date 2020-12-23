@@ -1,6 +1,6 @@
 <!--pages/grid/grid.wxml-->
 <view class="container">
-  <image src="../pics/timg (4).jfif" class='background' mode='aspectFill'> </image>
+  <image src="../pics/background3.jfif" class='background' mode='aspectFill'> </image>
 <view class="wrapper">
   <view class="top">
     <text class="label my-score">用时：{{time}}</text>

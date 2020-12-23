@@ -12,7 +12,7 @@ page {
 }
 
 .wrapper {
-  padding: 8px;
+  padding: 0px;
 }
 
 .flex-container {
