@@ -13,7 +13,7 @@ Page({
     timebegin: 0, //开始时间
     guanshu:1,
     successflag:[0,0,0,0,0,0],
-    cost:0,
+    cost:0
   },
   x: 0, // 用户点中的列
   y: 0, // 用户点中的行
@@ -380,11 +380,33 @@ Page({
   },
 
   modalcnt: function (s, that) {
+    s = Math.floor(s)
+    var temp = 0
+    app.globalData.finalscore[1] = s
+    //console.log(app.globalData.finalscore[1])
+    if (s < 60)
+    {
+      temp = 10
+    }
+    else if (s >= 60 && s < 80)
+    {
+      temp = 8
+    }
+    else if (s >= 80 && s < 100)
+    {
+      temp = 6
+    }
+    else
+    {
+      temp = 4
+    }
+    app.globalData.Presult[1] = temp
+    //console.log(app.globalData.Presult[1])
     wx.showModal({
       title: '恭喜你成功完成！',
       content: '你用了' + s + ' 秒就完成了测试，太厉害了！',
       cancelText: '再来一次',
-      confirmText: '下个测试',
+      confirmText: '查看结果',
       success: function (res) {
         if (res.confirm) {
           //console.log('用户点击确定');
@@ -398,14 +420,14 @@ Page({
   },
   goBack: function () {
     // 切换页面
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../index2/index2'
     });
   },
 
   goforward: function() {
-    wx.navigateTo({
-      url: '../numbermatch/numbermatch',
+    wx.redirectTo({
+      url: '../result/result',
     })
   }
 });

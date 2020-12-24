@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/numbermatch/numbermatch",
     "pages/index/index",
+    "pages/numbermatch/numbermatch",
+    "pages/grid/grid",
     "pages/result/result",
-    "pages/test/test",
     "pages/index2/index2",
-    "pages/grid/grid"
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",

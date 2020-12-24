@@ -38,6 +38,6 @@ App({
     finalscore:[0,0],
     temptime:0,
     Presult:[0,0],
-    Pfinalscore:0
+    Pfinalscore:''
   }
 })

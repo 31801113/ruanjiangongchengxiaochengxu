@@ -1,18 +1,48 @@
 // pages/result/result.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    grade:'A'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var temp = 0
+    temp = app.globalData.Presult[0] + app.globalData.Presult[1]
+    if (temp > 16)
+    {
+      app.globalData.Pfinalscore = 'A'
+      this.setData({
+        grade:'A'
+      })
+    }
+    else if (temp > 12 && temp <= 16)
+    {
+      app.globalData.Pfinalscore = 'B'
+      this.setData({
+        grade:'B'
+      })
+    }
+    else if (temp > 8 && temp <= 12)
+    {
+      app.globalData.Pfinalscore = 'C'
+      this.setData({
+        grade:'C'
+      })
+    }
+    else
+    {
+      app.globalData.Pfinalscore = 'D'
+      this.setData({
+        grade:'D'
+      })
+    }
   },
 
   /**

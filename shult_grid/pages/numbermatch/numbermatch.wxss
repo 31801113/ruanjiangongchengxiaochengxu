@@ -8,12 +8,16 @@
   flex-wrap: wrap;
 }
 .btns{
-  height: 30px;
-  width: 64px;
+  height: 75rpx;
+  width: 150rpx;
   border-radius: 0;
-  font-size:13px;
+  font-size:35rpx;
   flex-flow: row;
   flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
 }
 .btns-0{
   background-color: white;
@@ -31,7 +35,7 @@
 }
 .btns:active{
   /* Moving the button 1px to the bottom when clicked */
-  bottom: -3px;
+  bottom: -3rpx;
   background-position: top left;
   background-position: top left, bottom right, 0 0, 0 0;
   background-color: blue;
@@ -39,13 +43,6 @@
 .text{
   font-size:10px;
   }
-
-.containers {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px 0px;
-  } 
 
   .postion{
     display: flex; 
@@ -56,22 +53,13 @@
     /*字体设置*/
     font-family: sans-serif;/*方正舒体*/
     font-weight: bold;
-    font-size: 25px;
+    font-size: 60rpx;
     text-align: flex;/*字体位置*/
     color: black;
   }
 
   .flex-container {
     /* padding: 0; */
-    align-items: center;
-    justify-content: center;
-    padding-top: 0rpx;
-    margin: auto;
-    list-style: none;
     display: flex;
     flex-flow: row;
-    /* justify-content: space-around; */
-    line-height: 1em;
-    width: 100%;
-    border-radius: 40rpx;
   }
