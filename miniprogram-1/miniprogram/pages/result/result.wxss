@@ -1,0 +1,39 @@
+/* pages/result/result.wxss */
+.postion{
+  display: flex; 
+  justify-content: flex;
+}
+
+.font-settings {
+  /*字体设置*/
+  font-family: sans-serif;/*方正舒体*/
+  font-weight: bold;
+  font-size: 30px;
+  text-align: flex;/*字体位置*/
+  color: black;
+}
+
+.font-settings1 {
+  /*字体设置*/
+  font-family: sans-serif;/*方正舒体*/
+  font-weight: bold;
+  font-size: 60px;
+  text-align: flex;/*字体位置*/
+  color: black;
+}
+
+.bf_input_down{
+  display: block;
+  width: 124px;
+  height: 36px;
+  background: url(https://s3.ax1x.com/2020/12/08/rp60pV.png) no-repeat ;
+  background-size: 100% 120%;
+  margin:20px auto;
+  line-height: 36px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+.bf_input_down::after{ 
+  border: none; 
+}

@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="postion">
+  <view class="font-settings">游戏一:舒尔特方块</view>
+</view>
+<view class="postion">
+  <view class="font-settings">教程演示</view>
+</view>
+  <image src="../pics/background1.jpg" class='background' mode='aspectFill'> </image>
+  <image src="../pics/yanshi.gif" class='gift' mode='aspectFit'> </image>
+  <view class="postion">
+    <navigator url="/pages/grid/grid">
+      <button class="bf_input_down" formType="submit">开始测试<image src="../pics/button.png" class='button' mode='aspectFit'> </image></button>
+    </navigator>
+  </view>
+  <view class="postion">
+    <!--需要修改url -->
+    <navigator url="/pages/grid/grid">
+      <button class="bf_input_down" formType="submit">返回首页<image src="../pics/button.png" class='button' mode='aspectFit'> </image></button>
+    </navigator>
+  </view>
+</view>

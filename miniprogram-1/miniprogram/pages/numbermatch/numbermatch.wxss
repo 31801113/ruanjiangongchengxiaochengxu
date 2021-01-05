@@ -1,0 +1,65 @@
+/* pages/test/test.wxss */
+.button{
+  margin-top: 100rpx;
+  margin-right: 0rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+.btns{
+  height: 75rpx;
+  width: 150rpx;
+  border-radius: 0;
+  font-size:35rpx;
+  flex-flow: row;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.btns-0{
+  background-color: white;
+}
+.btns-1 {
+  background-color: #B62BB8;
+}
+
+.btns-2 {
+  background-color: #B62BB8;
+}
+
+.btns::after {
+  border-radius: 0;
+}
+/*.btns:active{
+  Moving the button 1px to the bottom when clicked 
+  bottom: -3rpx;
+  background-position: top left;
+  background-position: top left, bottom right, 0 0, 0 0;
+  background-color: blue;
+}*/
+.text{
+  font-size:10px;
+  }
+
+  .postion{
+    display: flex; 
+    justify-content: flex;
+  }
+  
+  .font-settings {
+    /*字体设置*/
+    font-family: sans-serif;/*方正舒体*/
+    font-weight: bold;
+    font-size: 60rpx;
+    text-align: flex;/*字体位置*/
+    color: black;
+  }
+
+  .flex-container {
+    /* padding: 0; */
+    display: flex;
+    flex-flow: row;
+  }

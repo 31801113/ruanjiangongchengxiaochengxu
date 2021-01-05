@@ -1,0 +1,24 @@
+<!--pages/index2/index2.wxml-->
+<view class="containers">
+  <view class="postion">
+  <view class="font-settings">游戏二:数字匹配</view>
+</view>
+<view class="postion">
+  <view class="font-settings">教程演示</view>
+</view>
+<view class="postion">
+  <view class="font-settings1">在同一行中尽快找出相同的数字</view>
+</view>
+  <image src="../pics/background1.jpg" class='background' mode='scaleToFill'> </image>
+  <image src="../pics/yanshi2.gif" class='gift' mode='aspectFit'> </image>
+  <view class="postion">
+    <navigator url="/pages/numbermatch/numbermatch">
+      <button class="bf_input_down" formType="submit">开始测试<image src="../pics/button.png" class='button' mode='aspectFit'> </image></button>
+    </navigator>
+  </view>
+  <view class="postion">
+    <navigator url="/pages/Pindex/index">
+      <button class="bf_input_down" formType="submit">返回首页<image src="../pics/button.png" class='button' mode='aspectFit'> </image></button>
+    </navigator>
+  </view>
+</view>

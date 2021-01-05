@@ -1,0 +1,17 @@
+<!--pages/grid/grid.wxml-->
+<view class="container">
+  <image src="../pics/background3.jpg" class='background' mode='aspectFill'> </image>
+<view class="wrapper">
+  <view class="top">
+    <text class="label my-score">用时：{{time}}</text>
+    <!-- <text class="label room-no"></text> -->
+    <text class="label my-score">当前：{{score}}</text>
+  </view>
+  <view wx:for="{{mimeMap}}" wx:for-item="row" wx:for-index="i" class="flex-container">
+    <!-- {{cell<0?'gold':''}} {{cell<9?'open':''}} -->
+    <button wx:for="{{row}}" wx:for-item="cell" wx:for-index="j" class="{{(score+1==cell || score==cell)?'flex-item open':'flex-item open2'}}"
+    bindtap="digGold" data-x="{{j}}" data-y="{{i}}" data-value="{{cell}}">
+      {{cell}} </button>
+  </view>
+</view>
+</view>

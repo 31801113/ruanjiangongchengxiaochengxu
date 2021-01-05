@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/Pindex/index",
+    "pages/Pindex2/index2",
+    "pages/numbermatch/numbermatch",
+    "pages/result/result",
+    "pages/grid/grid"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "PASS",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
